@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 
-class LeaguesScreen extends StatefulWidget {
-  const LeaguesScreen({super.key});
+class MyTeamsScreen extends StatefulWidget {
+  const MyTeamsScreen({super.key});
 
   @override
-  State<LeaguesScreen> createState() => _LeaguesScreenState();
+  State<MyTeamsScreen> createState() => _MyTeamsScreenState();
 }
 
-class _LeaguesScreenState extends State<LeaguesScreen> {
-  // A dummy list of leagues to display
-  final List<Map<String, String>> leagues = [
+class _MyTeamsScreenState extends State<MyTeamsScreen> {
+  // A dummy list of teams to display
+  final List<Map<String, String>> teams = [
     {
-      'region': 'Europe',
-      'name': 'Champions League',
+      'name': 'Nottingham',
+      'league': 'Premier League',
       'image': 'assets/europe.png' // Placeholder image
     },
     {
-      'region': 'England',
-      'name': 'Premier League',
+      'name': 'Manchester',
+      'league': 'Champion League',
       'image': 'assets/england.png' // Placeholder image
     },
     {
-      'region': 'Europe',
-      'name': 'Europa League',
+      'name': 'Getafe',
+      'league': 'Premier League',
       'image': 'assets/europe.png' // Placeholder image
     },
-    // Add more leagues here
+    // Add more teams here
   ];
 
   @override
@@ -70,7 +70,7 @@ class _LeaguesScreenState extends State<LeaguesScreen> {
                         },
                       ),
                       const Text(
-                        'Leagues',
+                        'My Teams',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
@@ -109,18 +109,18 @@ class _LeaguesScreenState extends State<LeaguesScreen> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  // League cards list
+                  // Team cards list
                   Expanded(
                     child: ListView.builder(
-                      itemCount: leagues.length,
+                      itemCount: teams.length,
                       itemBuilder: (context, index) {
-                        final league = leagues[index];
+                        final team = teams[index];
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 16.0),
-                          child: LeagueCard(
-                            region: league['region']!,
-                            name: league['name']!,
-                            imagePath: league['image']!,
+                          child: TeamCard(
+                            name: team['name']!,
+                            league: team['league']!,
+                            imagePath: team['image']!,
                           ),
                         );
                       },
@@ -136,16 +136,16 @@ class _LeaguesScreenState extends State<LeaguesScreen> {
   }
 }
 
-// Reusable widget for a league card
-class LeagueCard extends StatelessWidget {
-  final String region;
+// Reusable widget for a team card
+class TeamCard extends StatelessWidget {
   final String name;
+  final String league;
   final String imagePath;
 
-  const LeagueCard({
+  const TeamCard({
     super.key,
-    required this.region,
     required this.name,
+    required this.league,
     required this.imagePath,
   });
 
@@ -190,18 +190,18 @@ class LeagueCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  region,
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 14,
-                  ),
-                ),
-                Text(
                   name,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  league,
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
                   ),
                 ),
               ],

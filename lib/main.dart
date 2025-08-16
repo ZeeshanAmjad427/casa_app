@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; // Import Google Fonts
 import 'package:track_and_trace/screens/new%20screens/edit_profile_screen.dart';
+import 'package:track_and_trace/screens/new%20screens/league_details_screen.dart';
+import 'package:track_and_trace/screens/new%20screens/leagues_screen.dart';
+import 'package:track_and_trace/screens/new%20screens/match_details_screen.dart';
+import 'package:track_and_trace/screens/new%20screens/my_teams_screen.dart';
+import 'package:track_and_trace/screens/new%20screens/player_stats_screen.dart';
 import 'package:track_and_trace/screens/new%20screens/profile_screen.dart';
+import 'package:track_and_trace/screens/new%20screens/standings_screen.dart';
+import 'package:track_and_trace/screens/new%20screens/team_details_screen.dart';
 import 'package:track_and_trace/screens/new%20screens/team_invite_request_screen.dart';
 import 'package:track_and_trace/screens/new%20screens/terms_of_services_screen.dart';
 
@@ -25,7 +32,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: const ProfilePage(),
+      home: const MyTeamsScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
